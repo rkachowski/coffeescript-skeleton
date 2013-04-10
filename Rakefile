@@ -11,3 +11,8 @@ task :setup, :name do |t, args|
     #remove the skeleton remote so this can be hacked on like a champ
     `git remote remove origin`
 end
+
+desc "Startup python server"
+task :run do
+    `python -m SimpleHTTPServer` 
+end
