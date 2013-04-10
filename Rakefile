@@ -6,5 +6,8 @@ task :setup, :name do |t, args|
     `grep -lir APP_NAME . | xargs -I{} sed -i -e $'s/APP_NAME/#{app_name}/g' {}`
     `rm -fr *-e`
     `rm -fr src/*-e`
+    #rename the entry point coffeescript file to the app title
     `mv src/app/entry_point.coffee src/app/#{app_name.downcase}.coffee`
+    #remove the skeleton remote so this can be hacked on like a champ
+    `git remote remove origin`
 end
