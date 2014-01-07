@@ -14,5 +14,6 @@ end
 
 desc "Startup python server"
 task :run do
+    puts "Serving on port 8000!"
     `python -m SimpleHTTPServer` 
 end
