@@ -15,7 +15,7 @@ task :setup, :name do |t, args|
     files_to_modify = files_to_modify.reject {|s| s.include? "Rakefile" }
 
     files_to_modify.each do |s| 
-        change_files_to_modify_in_file s, "APP_NAME_LOWER", app_name.lower
+        change_stuff_in_file s, "APP_NAME_LOWER", app_name.downcase
     end
 
     files_to_modify = `grep -lir APP_NAME .`.split "\n" if files_to_modify
