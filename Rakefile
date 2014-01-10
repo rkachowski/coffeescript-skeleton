@@ -44,7 +44,7 @@ def add_script_to_index script_name
 
     lines.each_with_index{ |line, index| pl_index = index if line.include? "this is where the magic happens" }
 
-    if pl_index = 0
+    if pl_index == 0
        puts "magic not found, quitting." 
        exit 1
     end
