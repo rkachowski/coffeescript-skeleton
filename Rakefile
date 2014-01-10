@@ -41,12 +41,12 @@ end
 
 
 def phaser
-    `wget 'https://raw.github.com/photonstorm/phaser/blob/master/build/phaser.js' -O lib/phaser.js`
+    `wget 'https://raw.github.com/photonstorm/phaser/master/build/phaser.js' -O lib/phaser.js`
     add_script_to_index "phaser.js"
 end
 
 def pixi
-    `wget 'https://raw.github.com/GoodBoyDigital/pixi.js/blob/master/bin/pixi.dev.js' -O lib/pixi.dev.js`
+    `wget 'https://raw.github.com/GoodBoyDigital/pixi.js/master/bin/pixi.dev.js' -O lib/pixi.dev.js`
     add_script_to_index "pixi.dev.js"
 end
 
