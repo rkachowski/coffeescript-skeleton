@@ -19,11 +19,11 @@ task :setup, :name do |t, args|
     end
 
     files_to_modify = `grep -lir APP_NAME .`.split "\n"
-    puts files_to_modify
     files_to_modify = files_to_modify.reject {|s| s.include? "Rakefile" }
 
+    puts files_to_modify
+
     files_to_modify.each do |s| 
-        puts s
         change_stuff_in_file s, "APP_NAME", app_name
     end
 
@@ -60,6 +60,7 @@ def change_stuff_in_file file, from, to
 
     f = File.new file, "w"
     lines.each { |l| f << l }
+    puts "changed #{from}"
 end
 
 def add_script_to_index script_name
@@ -80,4 +81,6 @@ def add_script_to_index script_name
 
     f = File.new "index.html", "w"
     lines.each { |l| f << l }
+
+    puts "wrote script tag"
 end
