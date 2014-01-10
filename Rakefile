@@ -10,8 +10,21 @@ task :setup, :name do |t, args|
     end
 
     app_name = args[:name]
-    `grep -lir APP_NAME_LOWER . | xargs -I{} sed -i -e $'s/APP_NAME_LOWER/#{app_name.downcase}/g' {}`
-    `grep -lir APP_NAME . | xargs -I{} sed -i -e $'s/APP_NAME/#{app_name}/g' {}`
+
+    files_to_modify = `grep -lir APP_NAME_LOWER .`.split "\n"
+    files_to_modify = files_to_modify.reject {|s| s.include? "Rakefile" }
+
+    files_to_modify.each do |s| 
+        change_files_to_modify_in_file s, "APP_NAME_LOWER", app_name.lower
+    end
+
+    files_to_modify = `grep -lir APP_NAME .`.split "\n" if files_to_modify
+    files_to_modify = files_to_modify.reject {|s| s.include? "Rakefile" }
+
+    files_to_modify.each do |s| 
+        change_stuff_in_file s, "APP_NAME", app_name
+    end
+
     `rm -fr *-e`
     `rm -fr src/*-e`
     #rename the entry point coffeescript file to the app title
@@ -35,6 +48,16 @@ end
 def pixi
     `wget 'https://raw.github.com/GoodBoyDigital/pixi.js/blob/master/bin/pixi.dev.js' -O lib/pixi.dev.js`
     add_script_to_index "pixi.dev.js"
+end
+
+def change_stuff_in_file file, from, to
+    f = File.open(file) 
+
+    lines = f.readlines
+    lines.map! { |line| line.gsub from, to }
+
+    f = File.new file, "w"
+    lines.each { |l| f << l }
 end
 
 def add_script_to_index script_name
