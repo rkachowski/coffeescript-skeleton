@@ -28,12 +28,12 @@ end
 
 
 def phaser
-    `wget 'https://github.com/photonstorm/phaser/blob/master/build/phaser.js' lib/`
+    `wget 'https://raw.github.com/photonstorm/phaser/blob/master/build/phaser.js' lib/`
     add_script_to_index "phaser.js"
 end
 
 def pixi
-    `wget 'https://github.com/GoodBoyDigital/pixi.js/blob/master/bin/pixi.dev.js' lib/`
+    `wget 'https://raw.github.com/GoodBoyDigital/pixi.js/blob/master/bin/pixi.dev.js' lib/`
     add_script_to_index "pixi.dev.js"
 end
 
@@ -54,5 +54,5 @@ def add_script_to_index script_name
     lines.insert pl_index, script_tag
 
     f = File.new "index.html", "w"
-    f << lines
+    lines.each { |l| f << l }
 end
