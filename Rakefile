@@ -30,7 +30,9 @@ task :setup, :name do |t, args|
     #rename the entry point coffeescript file to the app title
     `mv src/app/entry_point.coffee src/app/#{app_name.downcase}.coffee`
     #remove the skeleton remote so this can be hacked on like a champ
-    `git remote rm origin` unless ENV['NORM']
+    unless ENV['NORM']
+    `rm -fr .git` 
+    end
 end
 
 desc "Startup python server"
