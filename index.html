@@ -2,9 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>APP_NAME</title>
-
-        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+        <title>drawin</title>
+        <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <style> body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+        </style>
         <link rel="stylesheet" href="src/css/project.css" />
 
         <script type="text/javascript" src="lib/jquery-2.1.1.min.js"></script>
@@ -12,38 +15,34 @@
 
         <!-- this is where the magic happens -->
         <script type="text/javascript" src="lib/require.js" data-main="src/main"></script>
-    </head>
-    <body>
-        <div class="navbar navbar-fixed-top">
+        </head>
+        <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="../">APP_NAME</a>
-                    <div class="nav-collapse collapse" id="main-menu">
-                        <ul class="nav" id="main-menu-left">
+                    </button>
+                    <a class="brand" href="#">Project name</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
-                        <ul class="nav pull-right" id="main-menu-right">
-                            <li><a rel="tooltip" href="" title="">Things<i class="icon-share-alt"></i></a></li>
-                            <li><a rel="tooltip" href="" title="" >More <i class="icon-share-alt"></i></a></li>
-                        </ul>
-                    </div>
+                    </div><!--/.nav-collapse -->
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="container">
-            <header class="jumbotron subhead" id="overview">
-            <div class="row">
-                <div class="span6">
-                    <h1>APP_NAME</h1>
-                    <p class="lead">DESCRIPTION</p>
-                </div>
-            </div>
-            </header>
-        </div>
-    </body>
-</html>
+
+            <h1>Bootstrap starter template</h1>
+            <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+
+        </div> <!-- /container -->
+        </body>
+        </html>
